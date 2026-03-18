@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <title>To-Do List</title>
   <style>
-    /* Стиль для виконаних завдань */
     .completed {
       text-decoration: line-through;
       color: gray;
       font-style: italic;
     }
     
-    /* Трохи відступів для краси */
     li {
       margin-bottom: 8px;
     }
@@ -35,38 +33,30 @@
 
     addButton.addEventListener('click', () => {
       const taskText = inputField.value.trim();
-      if (!taskText) return; // Перевірка на порожній рядок
+      if (!taskText) return; к
 
-      // Створюємо елемент списку
       const li = document.createElement('li');
 
-      // Створюємо елемент для тексту (щоб клікати саме по ньому)
       const span = document.createElement('span');
       span.textContent = taskText;
       span.className = 'task-text';
 
-      // 3. Позначення виконаної задачі стилем
       span.addEventListener('click', () => {
         span.classList.toggle('completed');
       });
 
-      // Створюємо кнопку для видалення
       const removeBtn = document.createElement('button');
       removeBtn.textContent = 'Видалити';
 
-      // 2. Видалення існуючого завдання
       removeBtn.addEventListener('click', () => {
         todoList.removeChild(li);
       });
 
-      // Збираємо всі елементи до купи
       li.appendChild(span);
       li.appendChild(removeBtn);
       
-      // 1. Додавання нового завдання у список
       todoList.appendChild(li);
       
-      // Очищуємо інпут після додавання
       inputField.value = '';
     });
   </script>
